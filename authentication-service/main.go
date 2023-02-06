@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -31,7 +32,7 @@ func main() {
 	}
 
 	srv := &http.Server{
-		Addr:    PORT,
+		Addr:    fmt.Sprintf(":%s", PORT),
 		Handler: app.routes(),
 	}
 	err := srv.ListenAndServe()
